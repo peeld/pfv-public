@@ -128,8 +128,8 @@ def demo_setup(repo_path: Path = None):
     print(f"📂 Repository path: {repo_path}")
     print(f"📂 Work tree path: {work_tree}")
     
-    print("\n🚀 To launch the GUI:")
-    print(f"   python build.py run -- '{repo_path}' '{work_tree}'   (from the pfv repo root)")
+    print("\n🚀 To try it:")
+    print(f"   python pfv_cli.py log design.psd --storage '{repo_path}'")
     
     return repo_path, work_tree
 

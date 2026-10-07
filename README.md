@@ -125,8 +125,6 @@ The `.pfv/` directory lives at the **work-tree root** (the directory where check
 | `pfv_deletion.py`, `pfv_delete_cli.py` | Non-destructive delete / rename / undelete markers, and their CLI |
 | `pfv_session.py` | `PFVSession`: a workspace's repo links (`.pfv/session.json`) |
 | `pfv_config.py` | `PFVConfig`: recently used workspaces (`~/.pfvconfig`) |
-| `pfv_app.py` | Backend facade for the C++ GUI: `dispatch(name, args_json) -> result_json` (see `GUI.md`, `DEVELOPMENT.md`) |
-| `pfv_startup.py` | Run by the C++ app at startup; `check()` is `PFV --python-check` |
 
 ---
 
@@ -876,12 +874,6 @@ One entry per version slot in `RepoInfo.slots`.
 | `azure-storage-blob` | Azure backend (stub) | `pip install azure-storage-blob` |
 
 Minimum for local use only: no third-party packages needed beyond the standard library (the credential store requires `cryptography` if you want to save credentials).
-
-**In the PFV app** (the C++ GUI), the embedded Python only has what the repo
-root's `app.json` lists under `python.packages` (installed by `build.py`):
-currently `boto3`. `cryptography`, `redis` and the stub backends' packages
-aren't included, so credential profiles and the Redis state backend don't
-work in the app yet. Add a pinned entry there to include one.
 
 ---
 
