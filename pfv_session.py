@@ -17,6 +17,7 @@ Schema  (<workspace>/.pfv/session.json):
                 "cred_profile": "s3-prod",   # optional
                 "region":       "us-east-1", # optional S3 kwargs
                 "endpoint_url": "...",        # optional
+                "profile":      "default",   # optional AWS named profile
                 "default":      true
             },
             {
@@ -256,4 +257,6 @@ class PFVSession:
             kwargs["region"] = repo["region"]
         if repo.get("endpoint_url"):
             kwargs["endpoint_url"] = repo["endpoint_url"]
+        if repo.get("profile"):
+            kwargs["profile"] = repo["profile"]   # AWS named profile
         return location, kwargs
